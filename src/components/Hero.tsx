@@ -2,14 +2,12 @@ import Image from "next/image";
 import React from "react";
 
 export const Hero = (data: any) => {
-  console.log(data);
   let fields = data?.fields;
   let image = fields?.heroImage?.fields;
   let src = "https:" + image?.file?.url;
   let alt = image?.description;
   let title = fields?.displayTitle;
   let subtitle = fields?.subtitle;
-  console.log(fields);
   return (
     <section className="py-20">
       <div className="w-full aspect-video relative z-0">
