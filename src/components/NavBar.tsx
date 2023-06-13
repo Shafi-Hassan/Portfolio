@@ -4,8 +4,11 @@ import React, { useState } from "react";
 import { AiOutlineClose, AiOutlineMenu, AiOutlineMail } from "react-icons/ai";
 import { FaLinkedinIn, FaGithub } from "react-icons/fa";
 import { BsFillPersonLinesFill } from "react-icons/bs";
+import { usePathname } from "next/navigation";
+import clsx from "clsx";
 
 export const NavBar = (data: any) => {
+  const page = data?.selectedPage;
   const fields = data?.fields;
   const image = fields?.logo?.fields;
   const src = "https:" + image?.file?.url;
@@ -14,7 +17,8 @@ export const NavBar = (data: any) => {
   const text = fields?.mobileNavFooterText;
   const socialLinks = fields?.mobileNavFooterLinks;
   const [open, setOpen] = useState(false);
-
+  const path = usePathname();
+  console.log(path);
   const menuToggle = () => {
     setOpen(!open);
   };
@@ -37,9 +41,15 @@ export const NavBar = (data: any) => {
               {links.map((link: any, index: number) => {
                 let href = link?.fields?.linkUrl;
                 let title = link?.fields?.linkText;
+                let bg = page === title.toLowerCase() ? "bg-gray-300" : "";
                 return (
                   <Link href={href} key={index}>
-                    <li className="px-5 h-20 flex justify-center items-center text:sm uppercase hover:bg-gray-400">
+                    <li
+                      className={clsx(
+                        "px-5 h-20 flex justify-center items-center text:sm uppercase hover:bg-gray-300",
+                        bg
+                      )}
+                    >
                       {title}
                     </li>
                   </Link>
@@ -88,6 +98,8 @@ export const NavBar = (data: any) => {
                   );
                 })}
               </ul>
+
+              <div className="">{text}</div>
 
               <div className="flex items-center justify-between my-4 w-full sm:w-[80%]">
                 {socialLinks.map((link: any, index: number) => {
