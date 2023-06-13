@@ -3,16 +3,20 @@ import Head from "next/head";
 import { Hero, NavBar } from "@/components";
 import TextPanel from "@/components/TextPanel";
 import ContactDetails from "@/components/ContactDetails";
+import Footer from "@/components/Footer";
 
 export default function Home(props: any) {
   let items = props.items;
   let pageData = [];
   let navBarProps = {};
+  let footerProps = {};
   for (let i = 0; i < items.length; i++) {
     if (items[i].fields.url === "/") {
       pageData = items[i];
     } else if (items[i].fields.contentType === "NavBar") {
       navBarProps = items[i];
+    } else if (items[i].fields.contentType === "Footer") {
+      footerProps = items[i];
     }
   }
   const hero = pageData?.fields?.hero;
@@ -24,6 +28,7 @@ export default function Home(props: any) {
       {hero ? <Hero {...hero} /> : null}
       {textPanel ? <TextPanel {...textPanel} /> : null}
       {contactDetails ? <ContactDetails {...contactDetails} /> : null}
+      <Footer {...footerProps} />
     </main>
   );
 }
