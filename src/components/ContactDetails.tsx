@@ -3,7 +3,7 @@ import { FaLinkedinIn, FaGithub } from "react-icons/fa";
 import { BsFillPersonLinesFill } from "react-icons/bs";
 import { AiOutlineMail } from "react-icons/ai";
 
-function ContactDetails(socialLinks: any) {
+export const ContactDetails = (socialLinks: any) => {
   let links = socialLinks[0]?.fields || socialLinks?.fields;
 
   var linksArray = Object.keys(links).map(function (namedIndex) {
@@ -42,6 +42,6 @@ function ContactDetails(socialLinks: any) {
       })}
     </div>
   );
-}
+};
 
 export default ContactDetails;

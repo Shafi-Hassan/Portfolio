@@ -17,10 +17,11 @@ export const TextPanel = (props: any) => {
   const imageAlt = image ? image?.description : "";
   const href = link ? link?.linkUrl : null;
   const linkText = link ? link.linkText : null;
+  let width = image ? "md:w-2/3" : "";
   return (
     <div className={clsx("w-full pt-20", textAlign)}>
       <div className="max-w-[1280px] w-full mx-auto flex flex-col md:flex-row p-2 justify-center items-center">
-        <div className="w-full md:w-2/3">
+        <div className={clsx("w-full", width)}>
           <p className="uppercase text-xl tracking-widest text-gray-600">
             {overline}
           </p>

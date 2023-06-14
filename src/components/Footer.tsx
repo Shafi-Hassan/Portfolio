@@ -4,7 +4,7 @@ import { AiOutlineMail } from "react-icons/ai";
 import { BsFillPersonLinesFill } from "react-icons/bs";
 import { FaGithub, FaLinkedinIn } from "react-icons/fa";
 
-function Footer(data: any) {
+export const Footer = (data: any) => {
   const fields = data?.fields;
   const image = fields?.logo?.fields;
   const src = "https:" + image?.file?.url;
@@ -15,9 +15,9 @@ function Footer(data: any) {
   const socialLinks = fields.socialLinks;
   return (
     <div className="w-full bg-blue-950 text-white p-8 py-16 flex flex-col justify-between">
-      <div className="lg:max-w-[700px] lg:mx-auto">
+      <div className="xl:max-w-[900px] w-full xl:mx-auto">
         <div className="flex flex-col md:flex-row w-full items-center md:justify-between">
-          <div className="relative w-[125px] h-[64px]">
+          <div className="relative w-[200px] h-[90px]">
             <Image
               src={src}
               alt={alt}
@@ -26,14 +26,18 @@ function Footer(data: any) {
               sizes="100vW"
             />
           </div>
-          <div className="flex flex-col md:flex-row md:max-w-[300px] md:ml-auto gap-[90px]">
+          <div className="flex flex-col md:flex-row md:max-w-[300px] md:ml-auto md:gap-[90px]">
             <div className="flex flex-col gap-3 text-center md:text-left mt-5 md:mt-0">
               {links.map((link: any, index: any) => {
                 let href = link?.fields?.linkUrl;
                 let title = link?.fields?.linkText;
                 if (index < half) {
                   return (
-                    <a key={index} href={href}>
+                    <a
+                      key={index}
+                      href={href}
+                      className="text-white hover:text-blue-200"
+                    >
                       {title}
                     </a>
                   );
@@ -88,6 +92,6 @@ function Footer(data: any) {
       </div>
     </div>
   );
-}
+};
 
 export default Footer;
