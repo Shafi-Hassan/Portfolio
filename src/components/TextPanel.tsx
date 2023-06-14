@@ -4,7 +4,6 @@ import parse from "html-react-parser";
 import Image from "next/image";
 
 export const TextPanel = (props: any) => {
-  console.log("data", props);
   const data = props?.fields;
   const overline = data?.overline ?? "";
   const title = data?.displayTitle ?? "";
@@ -49,7 +48,7 @@ export const TextPanel = (props: any) => {
           ) : null}
         </div>
         {image ? (
-          <div className="relative w-full md:w-1/2 mx-5 h-auto aspect-video md:aspect-square shadow-xl mt-5 shadow-gray-400 hover:scale-105 ease-in duration-300 rounded-xl">
+          <div className="relative w-full md:w-1/2 mx-5 h-auto aspect-video md:aspect-square shadow-xl my-8 shadow-gray-400 hover:scale-105 ease-in duration-300 rounded-xl">
             <Image
               src={imageUrl}
               alt={imageAlt}

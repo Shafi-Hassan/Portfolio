@@ -12,7 +12,27 @@ export const Resume = (props: any) => {
   let src = resume ? resume?.file?.url + "" : "";
   return (
     <div className="p-8">
-      <embed src={src} type="application/pdf" width="100%" height="1100px" />
+      <embed
+        src={src}
+        type="application/pdf"
+        className="sm:hidden"
+        width="100%"
+        height="500px"
+      />
+      <embed
+        src={src}
+        type="application/pdf"
+        className="hidden sm:block md:hidden"
+        width="100%"
+        height="700px"
+      />
+      <embed
+        src={src}
+        type="application/pdf"
+        className="hidden md:block"
+        width="100%"
+        height="1100px"
+      />
     </div>
   );
 };
