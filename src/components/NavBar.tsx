@@ -13,7 +13,7 @@ export const NavBar = (data: any) => {
   const image = fields?.logo?.fields;
   const src = "https:" + image?.file?.url;
   const alt = image?.description;
-  const links = fields.links;
+  const links = fields?.links;
   const text = fields?.mobileNavFooterText;
   const socialLinks = fields?.mobileNavFooterLinks;
   const [open, setOpen] = useState(false);
@@ -27,18 +27,20 @@ export const NavBar = (data: any) => {
     <section className="fixed w-full h-20 shadow-xl z-50 bg-[#ecf0f3]">
       {!open ? (
         <div className="flex justify-between items-center w-full h-full px-2 2xl:px-16">
-          <div className="relative w-[125px] h-[64px]">
-            <Image
-              src={src}
-              alt={alt}
-              fill={true}
-              className="object-cover"
-              sizes="100vw"
-            />
-          </div>
+          {src ? (
+            <div className="relative w-[125px] h-[64px]">
+              <Image
+                src={src}
+                alt={alt}
+                fill={true}
+                className="object-cover"
+                sizes="100vw"
+              />
+            </div>
+          ) : null}
           <div>
             <ul className="hidden md:flex">
-              {links.map((link: any, index: number) => {
+              {links?.map((link: any, index: number) => {
                 let href = link?.fields?.linkUrl;
                 let title = link?.fields?.linkText;
                 let bg = page === title.toLowerCase() ? "bg-gray-300" : "";
@@ -86,7 +88,7 @@ export const NavBar = (data: any) => {
 
             <div className=" mt-5 pb-4 flex flex-col">
               <ul className="uppercase">
-                {links.map((link: any, index: number) => {
+                {links?.map((link: any, index: number) => {
                   let href = link?.fields?.linkUrl;
                   let title = link?.fields?.linkText;
                   return (
@@ -102,7 +104,7 @@ export const NavBar = (data: any) => {
               <div className="">{text}</div>
 
               <div className="flex items-center justify-between my-4 w-full sm:w-[80%]">
-                {socialLinks.map((link: any, index: number) => {
+                {socialLinks?.map((link: any, index: number) => {
                   const data = link?.fields;
                   const text = data?.linkText;
                   const href = data?.linkUrl;

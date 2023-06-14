@@ -23,7 +23,6 @@ function About(props: any) {
   const hero = pageData?.fields?.hero;
   const textPanel = pageData?.fields?.textPanel;
   const contactDetails = pageData?.fields?.contactDetails;
-  console.log(items);
   return (
     <main>
       <NavBar selectedPage={"about"} {...navBarProps} />
