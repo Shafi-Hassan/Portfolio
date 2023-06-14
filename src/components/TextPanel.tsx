@@ -5,9 +5,9 @@ import Image from "next/image";
 
 export const TextPanel = (props: any) => {
   const data = props?.fields;
-  const overline = data?.overline;
-  const title = data?.displayTitle;
-  const text = data?.text;
+  const overline = data?.overline ?? "";
+  const title = data?.displayTitle ?? "";
+  const text = data?.text ?? "";
   const align = data?.textAlignCenter;
   const textAlign = align ? "text-center" : "text-left pl-10";
   const textMargin = align ? "m-auto" : "mr-auto";

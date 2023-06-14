@@ -14,7 +14,7 @@ export const ContactDetails = (socialLinks: any) => {
   });
   linksArray = linksArray.filter(Boolean);
   return (
-    <div className="flex items-center justify-between max-w-[330px] m-auto pt-4 pb-20">
+    <div className="flex items-center justify-between max-w-[330px] m-auto pt-6 pb-4">
       {linksArray.map((link: any, index: number) => {
         const text = link?.linkText;
         const href = link?.linkUrl;
