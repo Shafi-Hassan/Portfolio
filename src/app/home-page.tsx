@@ -1,5 +1,4 @@
 "use client";
-import Head from "next/head";
 import { Hero, NavBar } from "@/components";
 import TextPanel from "@/components/TextPanel";
 import ContactDetails from "@/components/ContactDetails";
