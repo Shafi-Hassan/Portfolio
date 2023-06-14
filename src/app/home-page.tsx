@@ -26,7 +26,12 @@ export default function Home(props: any) {
     <main>
       <NavBar selectedPage={"home"} {...navBarProps} />
       {hero ? <Hero {...hero} /> : null}
-      {textPanel ? <TextPanel {...textPanel} /> : null}
+      {textPanel
+        ? textPanel.map((text: any, index: any) => {
+            if (text) return <TextPanel key={index} {...text} />;
+            else return null;
+          })
+        : null}
       {contactDetails ? <ContactDetails {...contactDetails} /> : null}
       <Footer {...footerProps} />
     </main>

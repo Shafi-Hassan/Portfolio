@@ -4,6 +4,7 @@ import parse from "html-react-parser";
 import Image from "next/image";
 
 export const TextPanel = (props: any) => {
+  console.log("data", props);
   const data = props?.fields;
   const overline = data?.overline ?? "";
   const title = data?.displayTitle ?? "";
@@ -18,9 +19,18 @@ export const TextPanel = (props: any) => {
   const href = link ? link?.linkUrl : null;
   const linkText = link ? link.linkText : null;
   let width = image ? "md:w-2/3" : "";
+  let layout = data?.rightTextLayout;
+  let layoutClasses = layout
+    ? "flex-col-reverse md:flex-row-reverse"
+    : "flex-col md:flex-row";
   return (
     <div className={clsx("w-full pt-20", textAlign)}>
-      <div className="max-w-[1280px] w-full mx-auto flex flex-col md:flex-row p-2 justify-center items-center">
+      <div
+        className={clsx(
+          "max-w-[1280px] w-full mx-auto flex p-2 justify-center items-center gap-x-16",
+          layoutClasses
+        )}
+      >
         <div className={clsx("w-full", width)}>
           <p className="uppercase text-xl tracking-widest text-gray-600">
             {overline}
@@ -28,7 +38,7 @@ export const TextPanel = (props: any) => {
 
           <h2 className="py-4 text-gray-700">{title}</h2>
 
-          <div className={clsx("py-4 text-gray-600 max-w-[70%]", textMargin)}>
+          <div className={clsx("py-4 text-gray-600", textMargin)}>
             {parse(text)}
           </div>
 

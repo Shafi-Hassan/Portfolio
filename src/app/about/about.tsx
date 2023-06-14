@@ -23,7 +23,12 @@ export const About = (props: any) => {
       <NavBar selectedPage={"about"} {...navBarProps} />
       <div className="pb-20">
         {hero ? <Hero {...hero} /> : null}
-        {textPanel ? <TextPanel {...textPanel} /> : null}
+        {textPanel
+          ? textPanel.map((text: any, index: any) => {
+              if (text) return <TextPanel key={index} {...text} />;
+              else return null;
+            })
+          : null}
         {contactDetails ? <ContactDetails {...contactDetails} /> : null}
       </div>
       <Footer {...footerProps} />

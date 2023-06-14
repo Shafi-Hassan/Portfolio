@@ -30,7 +30,12 @@ export const Projects = (props: any) => {
       <NavBar selectedPage={"projects"} {...navBarProps} />
       <div className="pb-20">
         {hero ? <Hero {...hero} /> : null}
-        {textPanel ? <TextPanel {...textPanel} /> : null}
+        {textPanel
+          ? textPanel.map((text: any, index: any) => {
+              if (text) return <TextPanel key={index} {...text} />;
+              else return null;
+            })
+          : null}
         {projectsPanel ? <ProjectPanel {...projectsPanel} /> : null}
       </div>
       <Footer {...footerProps} />

@@ -27,7 +27,12 @@ export const Contact = (props: any) => {
       <NavBar selectedPage={"contact"} {...navBarProps} />
       <div className="pb-20">
         {hero ? <Hero {...hero} /> : null}
-        {textPanel ? <TextPanel {...textPanel} /> : null}
+        {textPanel
+          ? textPanel.map((text: any, index: any) => {
+              if (text) return <TextPanel key={index} {...text} />;
+              else return null;
+            })
+          : null}
         {contactPanel ? (
           <ContactPanel contactDetails={contactDetails} {...contactPanel} />
         ) : null}
