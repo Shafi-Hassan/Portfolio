@@ -9,7 +9,7 @@ export const TextPanel = (props: any) => {
   const title = data?.displayTitle ?? "";
   const text = data?.text ?? "";
   const align = data?.textAlignCenter;
-  const textAlign = align ? "text-center" : "text-left pl-10";
+  const textAlign = align ? "text-center" : "text-left px-4 sm:px-10";
   const textMargin = align ? "m-auto" : "mr-auto";
   const link = data?.link?.fields;
   const image = data?.image?.fields;
