@@ -1,40 +1,46 @@
 "use client";
 import React from "react";
-import { Hero, NavBar, Footer, ContactPanel, TextPanel } from "@/components";
+import { usePathname } from "next/navigation";
+import {
+  Hero,
+  NavBar,
+  Footer,
+  SkillsPanel,
+  TextPanel,
+  VideoPanel,
+} from "@/components";
 
-export const Contact = (props: any) => {
+export const Project = (props: any) => {
+  const path = usePathname();
   let items = props.items;
   let pageData = [];
   let navBarProps = {};
   let footerProps = {};
-  let contactDetails = {};
   for (let i = 0; i < items.length; i++) {
-    if (items[i].fields.url === "/contact") {
+    if (items[i].fields.url === path) {
       pageData = items[i];
     } else if (items[i].fields.contentType === "NavBar") {
       navBarProps = items[i];
     } else if (items[i].fields.contentType === "Footer") {
       footerProps = items[i];
-    } else if (items[i].fields.contentType === "Contact Details") {
-      contactDetails = items[i];
     }
   }
   const hero = pageData?.fields?.hero;
   const textPanel = pageData?.fields?.textPanel;
-  const contactPanel = pageData?.fields?.contactPanel;
+  const skillsPanel = pageData?.fields?.skills;
+  const videoPanel = pageData?.fields?.video;
   return (
     <main>
-      <NavBar selectedPage={"contact"} {...navBarProps} />
+      <NavBar selectedPage={"projects"} {...navBarProps} />
       <div className="pb-20">
         {hero ? <Hero {...hero} /> : null}
         {textPanel ? <TextPanel {...textPanel} /> : null}
-        {contactPanel ? (
-          <ContactPanel contactDetails={contactDetails} {...contactPanel} />
-        ) : null}
+        {videoPanel ? <VideoPanel {...videoPanel} /> : null}
+        {skillsPanel ? <SkillsPanel {...skillsPanel[0]} /> : null}
       </div>
       <Footer {...footerProps} />
     </main>
   );
 };
 
-export default Contact;
+export default Project;

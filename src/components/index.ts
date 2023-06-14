@@ -5,3 +5,5 @@ export { ContactDetails } from "./ContactDetails";
 export { Footer } from "./Footer";
 export { SkillsPanel } from "./SkillsPanel";
 export { ContactPanel } from "./ContactPanel";
+export { ProjectPanel } from "./ProjectPanel";
+export { VideoPanel } from "./VideoPanel";

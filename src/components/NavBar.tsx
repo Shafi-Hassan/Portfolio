@@ -18,7 +18,6 @@ export const NavBar = (data: any) => {
   const socialLinks = fields?.mobileNavFooterLinks;
   const [open, setOpen] = useState(false);
   const path = usePathname();
-  console.log(path);
   const menuToggle = () => {
     setOpen(!open);
   };

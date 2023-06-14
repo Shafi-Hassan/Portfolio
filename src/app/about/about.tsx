@@ -1,17 +1,13 @@
 "use client";
-import { Hero, NavBar } from "@/components";
-import TextPanel from "@/components/TextPanel";
-import ContactDetails from "@/components/ContactDetails";
-import Footer from "@/components/Footer";
+import { Hero, NavBar, Footer, ContactDetails, TextPanel } from "@/components";
 
-function About(props: any) {
+export const About = (props: any) => {
   let items = props.items;
   let pageData = [];
   let navBarProps = {};
   let footerProps = {};
   for (let i = 0; i < items.length; i++) {
     if (items[i].fields.url === "/about") {
-      console.log(items[i]);
       pageData = items[i];
     } else if (items[i].fields.contentType === "NavBar") {
       navBarProps = items[i];
@@ -33,6 +29,6 @@ function About(props: any) {
       <Footer {...footerProps} />
     </main>
   );
-}
+};
 
 export default About;

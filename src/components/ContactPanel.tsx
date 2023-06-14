@@ -114,6 +114,15 @@ export const ContactPanel = (props: any) => {
           </div>
         </div>
       </div>
+
+      <div className="w-full h-full flex">
+        <a
+          href="/resume"
+          className="mx-auto my-10 p-4 text-gray-100 shadow-xl shadow-gray-400 rounded-xl uppercase bg-gradient-to-r from-[#5651e5] to-[#709dff]"
+        >
+          Resume
+        </a>
+      </div>
     </div>
   );
 };
